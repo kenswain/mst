@@ -56,7 +56,7 @@ echo "-----------------------------"
 echo "1. Scanning for live hosts..."
 echo "-----------------------------"
 nmap -sP -PS21,22,23,25,80,88,139,389,445,3389 -iL $networks > hosts_tmp
-cat hosts_tmp | grep is | grep up > hosts
+cat hosts_tmp | grep is | grep up | cut -d" " -f2 > hosts
 ## Removed the comment out of the deletion of hosts_tmp file. This was originally added to aid in testing.
 rm ./hosts_tmp
 echo ""
